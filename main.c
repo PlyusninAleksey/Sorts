@@ -31,6 +31,11 @@ void main()
 	printf("b = ");
 	scanf_s("%i", &b);
 
+	for (i = 0; i < ARRAY_LENGTH; i++)
+	{
+		array[i] = (rand() % (b - a + 1)) + a;
+	}
+
 	int flag;
 	printf("Выводить массив? Если да введите, то введите 1, иначе введите 0: ");
 	scanf_s("%i", &flag);
@@ -40,7 +45,6 @@ void main()
 		printf("Исходный массив:\n");
 		for (i = 0; i < ARRAY_LENGTH; i++)
 		{
-			array[i] = (rand() % (b - a + 1)) - a;
 			printf("%d ", array[i]);
 		}
 	}
