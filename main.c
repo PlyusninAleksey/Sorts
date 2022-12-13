@@ -10,6 +10,7 @@
 #include "MergeSort.h"
 #include "LinearSearch.h"
 #include "BinarySearch.h"
+#include "ShakerSort.h"
 
 
 void main()
@@ -33,7 +34,7 @@ void main()
 
 	for (i = 0; i < ARRAY_LENGTH; i++)
 	{
-		array[i] = (rand() % (b - a + 1)) + a;
+		array[i] = ((rand() % (b - a + 1)) + a);
 	}
 
 	int flag;
@@ -57,6 +58,7 @@ void main()
 	printf("4.Сортировка подсчётом.\n");
 	printf("5.Быстрая сортировка.\n");
 	printf("6.Сортировка слиянием.\n");
+	printf("7.Шейкерная сортировка.\n");
 
 	printf("Выберите вид сортировки:");
 	scanf_s("%d", &n);
@@ -103,6 +105,13 @@ void main()
 		free(buffer);
 		break;
 	}
+	case 7:
+		time = clock();
+		ShakerSort(array, ARRAY_LENGTH);
+		time = clock() - time;
+		printf("Time = %lf\n", (double)time / CLOCKS_PER_SEC);
+		break;
+
 	default:
 		printf("Неверно введён номер");
 		break;

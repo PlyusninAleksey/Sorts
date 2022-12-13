@@ -1,36 +1,29 @@
 #include "CountSort.h"
 
-int maxElement(int* array, int arraySize)
-{
-	int max = array[0];
-	for (int i = 0; i < arraySize; i++)
-	{
-		if (max < array[i])
-		{
-			max = array[i];
-		}
-	}
-	return max;
-}
-
-int minElement(int* array, int arraySize)
-{
-	int min = array[0];
-	for (int i = 0; i < arraySize; i++)
-	{
-		if (min > array[i])
-		{
-			min = array[i];
-		}
-	}
-	return min;
-}
 
 void CountSort(int* array, int arraySize)
 {
+	long long int countIf = 0;
 	
-	int MaxElement = maxElement(array, arraySize);
-	int MinElement = minElement(array, arraySize);
+	int MaxElement = array[0];
+	for (int i = 0; i < arraySize; i++)
+	{
+		countIf++;
+		if (MaxElement < array[i])
+		{
+			MaxElement = array[i];
+		}
+	}
+
+	int MinElement = array[0];
+	for (int i = 0; i < arraySize; i++)
+	{
+		countIf++;
+		if (MinElement > array[i])
+		{
+			MinElement = array[i];
+		}
+	}
 
 	int countSize;
 	if (MinElement < 0)
@@ -61,7 +54,7 @@ void CountSort(int* array, int arraySize)
 			count++;
 		}
 	}
-
-
 	free(countArr);
+
+	printf("CountIf = %lld\n", countIf);
 }
